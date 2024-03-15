@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>导航</title>
 <style>
     a:link{
@@ -17,6 +18,27 @@
         color: blue;
         text-decoration: none;
     }
+.collapsible {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 5px;
+  border-color: red;
+  color: red;
+}
+
+.active, .collapsible:hover {
+  background: red;
+  color: white;
+}
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
 </style>
 </head>
 <body>
@@ -26,5 +48,31 @@
 <a href="http://ipv4.chilor.top:8086">IPv4网关</a>
 <h3><b>IPv6</b></h3>
 <a href="http://ubuntu.chilor.top">Server #0(Ubuntu)</a> | <a href="http://fedora.chilor.top">Server #1(Fedora)</a>
+<br>
+<br>
+<button type="button" class="collapsible">实验性内容</button>
+<div class="content">
+  <p>
+    以下内容正在开发/测试中，可能无法正常访问
+    <br>
+    The following content is under development/testing and may not be accessible.
+  </p>
+</div>
 </body>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
 </html>
