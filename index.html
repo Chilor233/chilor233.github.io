@@ -21,53 +21,12 @@
   background: dodgerblue;
   color: white;
 }
-.collapsible {
-  border: 2px solid black;
-  background-color: white;
-  color: black;
-  cursor: pointer;
-  text-align: center;
-  font-size: 15px;
-  border-radius: 5px;
-  border-color: red;
-  color: red;
-}
-
-.active, .collapsible:hover {
-  background: red;
-  color: white;
-}
-.content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
 </style>
 </head>
 <body>
 <h1><b>别看了，这里啥都没有</b></h1>
 <p>There's Nothing Here</p>
 <br><br><br>
-<button type="button" class="collapsible">让我康康!</button>
-<div class="content">
-    <p>真的想看看我都写了些啥?<br>↓ 点击下方按钮(屎山警告)</p>
-    <button type="button" class="btn info" onclick='window.open("go.html")'>点击前往导航页</button>
-</div>
+<button type="button" class="btn info" onclick='window.open("http://status.chilor.top:3001")'>点击查询XNTT Network服务器状态</button>
 </body>
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } 
-      });
-    }
-</script>
 </html>
